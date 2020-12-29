@@ -1,0 +1,57 @@
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.timer {
+  display: flex;
+  width: fit-content;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
+
+.field:not(:last-child) {
+  margin-right: 30px;
+}
+
+.value {
+  text-align: center;
+  width: 100%;
+  font-size: 40px;
+  font-family: "Audiowide", cursive;
+  padding: 30px 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  text-shadow: 0px 0px 2px white;
+  border-radius: 10px;
+}
+
+.label {
+  padding-top: 20px;
+  text-shadow: 0px 0px 2px white;
+}
+
+.new-year-img {
+  width: 80px;
+  height: auto;
+
+  position: absolute;
+  top: -40%;
+  left: 25%;
+}
