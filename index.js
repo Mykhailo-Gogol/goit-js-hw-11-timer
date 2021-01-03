@@ -1,7 +1,7 @@
-let daysRef = document.querySelector("[data-value='days']");
-let hoursRef = document.querySelector("[data-value='hours']");
-let minsRef = document.querySelector("[data-value='mins']");
-let secsRef = document.querySelector("[data-value='secs']");
+const daysRef = document.querySelector("[data-value='days']");
+const hoursRef = document.querySelector("[data-value='hours']");
+const minsRef = document.querySelector("[data-value='mins']");
+const secsRef = document.querySelector("[data-value='secs']");
 
 function pad(value) {
   return String(value).padStart(2, "0");
@@ -9,33 +9,45 @@ function pad(value) {
 
 class CountdownTimer {
   selector = document.querySelector("#timer-1");
-  targetDate = new Date("Jan 1, 2021");
+  targetDate = new Date("Jan 4, 2021");
 
   start() {
     const targetDate = Date.parse(this.targetDate);
 
-    setInterval(() => {
+    const myInterval = setInterval(() => {
+      
       const currentDate = new Date();
       const time = targetDate - currentDate;
-
       const days = Math.floor(time / (1000 * 60 * 60 * 24));
       const hours = Math.floor(
         (time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
       );
       const mins = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
       const secs = Math.floor((time % (1000 * 60)) / 1000);
+
       secsRef.textContent = pad(secs);
       minsRef.textContent = pad(mins);
       hoursRef.textContent = pad(hours);
       daysRef.textContent = days;
-      console.log(`${days} : ${pad(hours)} : ${pad(mins)} : ${pad(secs)}`);
+
+      if (days === 0 && hours <= 7 && mins <= 59 && secs <= 59) {
+        stop();
+      }
     }, 1000);
+
+    function stop() {
+      clearInterval(myInterval);
+      secsRef.textContent = "00";
+      minsRef.textContent = "00";
+      hoursRef.textContent = "00";
+      daysRef.textContent = "0";
+    }
   }
 }
 
 const timer = new CountdownTimer();
 
-timer.start();
+timer.start(() => {});
 
 /*
  * Оставшиеся дни: делим значение UTC на 1000 * 60 * 60 * 24, количество
