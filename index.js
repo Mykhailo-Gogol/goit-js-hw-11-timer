@@ -9,13 +9,11 @@ function pad(value) {
 
 class CountdownTimer {
   selector = document.querySelector("#timer-1");
-  targetDate = new Date("Jan 4, 2021");
+  targetDate = new Date("Feb 1, 2021");
 
   start() {
     const targetDate = Date.parse(this.targetDate);
-
     const myInterval = setInterval(() => {
-      
       const currentDate = new Date();
       const time = targetDate - currentDate;
       const days = Math.floor(time / (1000 * 60 * 60 * 24));
@@ -30,7 +28,7 @@ class CountdownTimer {
       hoursRef.textContent = pad(hours);
       daysRef.textContent = days;
 
-      if (days === 0 && hours <= 7 && mins <= 59 && secs <= 59) {
+      if (days <= 0 && hours <= 0 && mins < 0) {
         stop();
       }
     }, 1000);
@@ -47,7 +45,7 @@ class CountdownTimer {
 
 const timer = new CountdownTimer();
 
-timer.start(() => {});
+timer.start();
 
 /*
  * Оставшиеся дни: делим значение UTC на 1000 * 60 * 60 * 24, количество
