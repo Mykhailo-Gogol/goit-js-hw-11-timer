@@ -8,11 +8,14 @@ function pad(value) {
 }
 
 class CountdownTimer {
-  selector = document.querySelector("#timer-1");
-  targetDate = new Date("Feb 1, 2021");
+  constructor(selector, targetDate) {
+    this.selector = selector;
+    this.targetDate = targetDate;
+  }
 
   start() {
     const targetDate = Date.parse(this.targetDate);
+
     const myInterval = setInterval(() => {
       const currentDate = new Date();
       const time = targetDate - currentDate;
@@ -43,7 +46,9 @@ class CountdownTimer {
   }
 }
 
-const timer = new CountdownTimer();
+const container = document.querySelector("#timer-1");
+const targetDate = new Date("Jul 21, 2021");
+const timer = new CountdownTimer(container, targetDate);
 
 timer.start();
 
