@@ -11,16 +11,16 @@ class CountdownTimer {
 
   start() {
     const daysRef = document.querySelector(
-      `#${this.selector.id} [data-value='days']`
+      `#${this.selector.id} .field [data-value='days']`
     );
     const hoursRef = document.querySelector(
-      `#${this.selector.id} [data-value='hours']`
+      `#${this.selector.id} .field [data-value='hours']`
     );
     const minsRef = document.querySelector(
-      `#${this.selector.id} [data-value='mins']`
+      `#${this.selector.id} .field [data-value='mins']`
     );
     const secsRef = document.querySelector(
-      `#${this.selector.id} [data-value='secs']`
+      `#${this.selector.id} .field [data-value='secs']`
     );
 
     const targetDate = Date.parse(this.targetDate);
