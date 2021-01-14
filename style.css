@@ -11,10 +11,8 @@ body {
 .timer {
   display: flex;
   width: fit-content;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .field {

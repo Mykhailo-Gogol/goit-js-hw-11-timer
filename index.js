@@ -10,10 +10,18 @@ class CountdownTimer {
   }
 
   start() {
-    const daysRef = document.querySelector("[data-value='days']");
-    const hoursRef = document.querySelector("[data-value='hours']");
-    const minsRef = document.querySelector("[data-value='mins']");
-    const secsRef = document.querySelector("[data-value='secs']");
+    const daysRef = document.querySelector(
+      `#${this.selector.id} [data-value='days']`
+    );
+    const hoursRef = document.querySelector(
+      `#${this.selector.id} [data-value='hours']`
+    );
+    const minsRef = document.querySelector(
+      `#${this.selector.id} [data-value='mins']`
+    );
+    const secsRef = document.querySelector(
+      `#${this.selector.id} [data-value='secs']`
+    );
 
     const targetDate = Date.parse(this.targetDate);
 
@@ -43,4 +51,6 @@ class CountdownTimer {
   }
 }
 
-const timer = new CountdownTimer("#timer-1", "Jul 21, 2021");
+const timer = new CountdownTimer("#timer-1", "May 21, 2021");
+
+const timer2 = new CountdownTimer("#timer-2", "Jul 21, 2021");
